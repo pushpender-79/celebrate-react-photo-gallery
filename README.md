@@ -1,16 +1,48 @@
-# React + Vite
+# Celebrare Photo Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **Frontend Intern Pre-Screening Assignment** for Celebrare.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* React (Vite)
+* Tailwind CSS
+* JavaScript
 
-## React Compiler
+## Features Implemented
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Project Setup
 
-## Expanding the ESLint configuration
+* Created a React + Vite project
+* Configured Tailwind CSS for styling
+* No external UI libraries used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Fetch Photos from API
+
+* Fetched 30 images from the Picsum Photos API
+* Implemented a custom hook `useFetchPhotos`
+* Added loading state while fetching
+* Added error handling for failed requests
+
+### 3. Responsive Photo Grid
+
+* Displayed photos in a responsive grid layout
+* Desktop: 4 columns
+* Tablet: 2 columns
+* Mobile: 1 column
+
+Each photo card shows:
+
+* Image
+* Author name
+* Heart icon button
+
+## API Used
+
+https://picsum.photos/v2/list?limit=30
+
+## Upcoming Features
+
+* Search filter by author name
+* Favourite photos using `useReducer`
+* Persist favourites using `localStorage`
+* Performance optimization using `useCallback` and `useMemo`
