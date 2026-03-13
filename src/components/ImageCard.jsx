@@ -1,6 +1,6 @@
 function ImageCard({ photo, toggleFavourite, isFavourite }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transform hover:scale-105 transition duration-300">
       <img
         src={`https://picsum.photos/id/${photo.id}/400/300`}
         alt={photo.author}
@@ -12,7 +12,7 @@ function ImageCard({ photo, toggleFavourite, isFavourite }) {
 
         <button
           onClick={() => toggleFavourite(photo)}
-          className={`text-xl transition-colors duration-200 ${isFavourite ? "text-red-500" : "text-gray-400 hover:text-red-500"}`}
+          className={`text-xl transition-colors duration-200 ${isFavourite ? "text-red-500 scale-125" : "text-gray-400 hover:text-red-500"}`}
         >
           {isFavourite ? "❤️" : "🤍"}
         </button>

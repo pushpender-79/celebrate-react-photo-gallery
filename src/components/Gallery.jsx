@@ -34,12 +34,12 @@ function Gallery() {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-gray-50 min-h-screen">
       {/* SEARCH BAR */}
       <div className="flex justify-center mb-10">
         <input
           type="text"
-          placeholder="Search by author..."
+          placeholder="🔍 Search by author..."
           value={search}
           onChange={handleSearch}
           className="w-full max-w-md p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -51,7 +51,7 @@ function Gallery() {
           No images found for this author
         </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
           {filteredPhotos.map((photo) => (
             <ImageCard
               key={photo.id}
