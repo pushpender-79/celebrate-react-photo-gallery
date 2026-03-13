@@ -1,7 +1,6 @@
-function ImageCard({ photo }) {
+function ImageCard({ photo, toggleFavourite, isFavourite }) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-
       <img
         src={`https://picsum.photos/id/${photo.id}/400/300`}
         alt={photo.author}
@@ -9,17 +8,15 @@ function ImageCard({ photo }) {
       />
 
       <div className="flex justify-between items-center p-3">
+        <p className="text-sm font-semibold text-gray-700">{photo.author}</p>
 
-        <p className="text-sm font-semibold text-gray-700">
-          {photo.author}
-        </p>
-
-        <button className="text-gray-400 hover:text-red-500 text-xl">
-          ❤️
+        <button
+          onClick={() => toggleFavourite(photo)}
+          className={`text-xl transition-colors duration-200 ${isFavourite ? "text-red-500" : "text-gray-400 hover:text-red-500"}`}
+        >
+          {isFavourite ? "❤️" : "🤍"}
         </button>
-
       </div>
-
     </div>
   );
 }

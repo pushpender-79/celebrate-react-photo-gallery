@@ -2,7 +2,7 @@
 
 This project is a **Frontend Intern Pre-Screening Assignment** for Celebrare.
 
-The application fetches photos from the Picsum Photos API and displays them in a responsive gallery with search functionality.
+The application fetches photos from the Picsum Photos API and displays them in a responsive gallery with search functionality and favourites.
 ## Tech Stack
 
 * React (Vite)
@@ -38,7 +38,7 @@ Each photo card shows:
 * Author name
 * Heart icon button
 
-4️⃣ Real-Time Search Filter
+### 4. Real-Time Search Filter
 
 *A search bar is placed at the top of the gallery
 
@@ -53,6 +53,14 @@ Each photo card shows:
 *If no author matches the search query, a message is displayed:
 
 "No images found for this author"
+
+### 5. Favourites with useReducer ✅
+
+* Heart icon toggles photo as favourite
+* Favourites state is managed using `useReducer`
+* State persists across page refreshes using `localStorage`
+* `useCallback` used for toggle handler to prevent unnecessary re-renders
+
 
 📂 Project Structure
 
@@ -95,8 +103,7 @@ https://picsum.photos/v2/list?limit=30
 ✅ Requirement 2 – API Fetch
 ✅ Requirement 3 – Responsive Grid
 ✅ Requirement 4 – Search Filter
-
-⬜ Requirement 5 – Favourites with useReducer
+✅ Requirement 5 – Favourites with useReducer
 ⬜ Requirement 6 – Custom Hook
 ⬜ Requirement 7 – useCallback + useMemo
 
