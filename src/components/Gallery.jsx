@@ -7,14 +7,16 @@ function Gallery() {
   const { photos, loading, error } = useFetchPhotos();
   const [search, setSearch] = useState("");
   const [state, dispatch] = useReducer(favouritesReducer, initialState);
+  // ✅ useCallback prevents recreation of the function on every render
   const toggleFavourite = useCallback((photo) => {
     dispatch({
       type: "TOGGLE_FAV",
       payload: photo,
     });
   }, []);
-  const handleSearch = useCallback((e) => setSearch(e.target.value), []);
 
+  const handleSearch = useCallback((e) => setSearch(e.target.value), []);
+  // ✅ useMemo prevents recomputing filteredPhotos unless photos or search changes
   const filteredPhotos = useMemo(() => {
     return photos.filter((photo) =>
       photo.author.toLowerCase().includes(search.toLowerCase()),
@@ -39,7 +41,7 @@ function Gallery() {
           type="text"
           placeholder="Search by author..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleSearch}
           className="w-full max-w-md p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
         />
       </div>

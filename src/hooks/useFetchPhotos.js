@@ -6,21 +6,22 @@ function useFetchPhotos() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://picsum.photos/v2/list?page=1&limit=30")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch");
-        }
-        return res.json();
-      })
-      .then((data) => {
+    const fetchPhotos = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch("https://picsum.photos/v2/list?limit=30");
+        if (!res.ok) throw new Error("Failed to fetch photos");
+        const data = await res.json();
         setPhotos(data);
-        setLoading(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         setError(err.message);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchPhotos();
+
   }, []);
 
   return { photos, loading, error };
